@@ -18,4 +18,3 @@ service PingPongService {
     rpc ping(Ping) returns (Pong);
     rpc fail(Ping) returns (Pong);
 }
-

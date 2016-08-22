@@ -15,23 +15,9 @@
 */
 package com.googlecode.protobuf.pro.duplex.example;
 
-import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
-
-import java.util.concurrent.Executors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.protobuf.BlockingService;
 import com.google.protobuf.Service;
-import com.googlecode.protobuf.pro.duplex.CleanShutdownHandler;
-import com.googlecode.protobuf.pro.duplex.PeerInfo;
-import com.googlecode.protobuf.pro.duplex.RpcClientChannel;
-import com.googlecode.protobuf.pro.duplex.RpcConnectionEventNotifier;
-import com.googlecode.protobuf.pro.duplex.RpcSSLContext;
+import com.googlecode.protobuf.pro.duplex.*;
 import com.googlecode.protobuf.pro.duplex.example.program.ShortTests;
 import com.googlecode.protobuf.pro.duplex.example.wire.PingPong.BlockingPingService;
 import com.googlecode.protobuf.pro.duplex.example.wire.PingPong.BlockingPongService;
@@ -47,6 +33,14 @@ import com.googlecode.protobuf.pro.duplex.timeout.RpcTimeoutExecutor;
 import com.googlecode.protobuf.pro.duplex.timeout.TimeoutChecker;
 import com.googlecode.protobuf.pro.duplex.timeout.TimeoutExecutor;
 import com.googlecode.protobuf.pro.duplex.util.RenamingThreadFactoryProxy;
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.Executors;
 
 public class DuplexPingPongServer {
 
